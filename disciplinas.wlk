@@ -7,8 +7,7 @@ object tenis {
     method cambiarEntrenadores(nuevaCantidadEntrenadores) {
         entrenadores = (nuevaCantidadEntrenadores)
     } 
-    method presupuesto() =  200 + (victoria.cantidadDeInvitados()*3)
-    method presupuestoDisciplina() = (self.entrenadores()*comiteOlimpico.valorPorEntrenador())
+    method presupuesto() = 200 + (victoria.cantidadDeInvitados()*3)
     method costoElemento() = raqueta.costoElemento()
 } 
 
@@ -17,11 +16,10 @@ object judo {
     method medallasDeJudoGanadas() = medallas
     method presupuesto() = 120 * (self.medallasDeJudoGanadas())
     method entrenadores () = 2
-    method sumarUnaMedallaDeJudoGanada() {
-        medallas = medallas +1
-    }
     method presupuestoDisciplina() = (self.entrenadores()*comiteOlimpico.valorPorEntrenador())
-    
+        method sumarUnaMedallaDeJudoGanada() {
+        medallas = medallas+1
+    }
 }
 
 object hockey {

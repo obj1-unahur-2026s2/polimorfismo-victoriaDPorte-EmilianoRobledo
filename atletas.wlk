@@ -2,26 +2,45 @@ import disciplinas.*
 import elementos.*
 
 object victoria {
+
+    
+    //Variables
     var alturaCm = 170 //1,7metros
     var anios = 23
     var invitados = 5
-    method edad() = anios
+    var elementoAhora = raqueta
+    //Modificaciones a variables
+    method elementoActual() = elementoAhora
+    method cambiarElemento(nuevoElemento) {
+      elementoAhora = (nuevoElemento)
+    } 
+    
     method cumplirAnios() {
         anios = anios +1  
     }
-    method altura() = alturaCm
     method cambiarAltura(nuevaAltura) {
         alturaCm = (nuevaAltura)
     }
-    method cantidadDeInvitados() = invitados
     method cambiarCantidadDeInvitados(cantInvitadosNuevos) {
         invitados = (cantInvitadosNuevos)
     }
-    method presupuesto(disciplina) = (disciplina.presupuesto()+ disciplina.costoElemento()) 
-    /*
-    method presupuesto() = (((entrenadoresPorDisciplina()) * (valorPorEntrenador())) + disciplina.costoElemento())
-    method entrenadoresPorDisciplina() = disciplinas.entrenadores()
-    */
+
+    //Metodo de returns
+    method edad() = anios
+    method altura() = alturaCm
+    
+    method cantidadDeInvitados() = invitados
+    
+    method presupuesto(disciplina)= (disciplina.entrenadores() * comiteOlimpico.valorPorEntrenador()) + self.elementoActual().costoElemento() + disciplina.presupuesto()
+    
+    //DUDAS:
+    
+    // method presupuesto(disciplina) =  disciplina.presupuesto()   
+    //No logro crear un method donde uno sea presupuestoPropio, formado por (entradores * precioComite) + precioElemento actual
+    //Y otro metodo donde sea
+    //method presupuesto(disciplina)= (disciplina.entrenadores() * comiteOlimpico.valorPorEntrenador())
+    //Y crear uno que presupuestoTotal y sea una suma entre presupuesto(disciplina)+ presupuestoPropio
+    
 }
 
 object comiteOlimpico {
@@ -30,6 +49,9 @@ object comiteOlimpico {
     method nuevoValorEntrenador(nuevoValor) {
         valorEntrenador = nuevoValor
     } 
+    method sumarUnaMedallaDeJudoGanada() {
+        judo.medallas+1
+    }
 }
 /*
 **Métodos**
